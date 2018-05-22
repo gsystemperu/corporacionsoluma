@@ -14,7 +14,7 @@ Ext.define('corporacionsoluma.view.main.Main', {
       titleCollapse :false,
       collapsed:false,
       title: '::. Corporacion Soluma .::',
-      iconCls: 'fa fa-wrench fa-2x' ,
+      //iconCls: 'fa fa-wrench fa-2x' ,
       titleAlign : 'center',
       width: 230,
       layout: {

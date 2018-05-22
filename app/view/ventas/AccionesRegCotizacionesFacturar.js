@@ -56,9 +56,8 @@ Ext.define('corporacionsoluma.view.ventas.AccionesRegCotizacionesFacturar', {
        }
     },
     onClickEliminarcotizacionFacturar:function(button, event, eOpts){
-       rec = button.getWidgetRecord();
+      rec = button.getWidgetRecord();
       me = this;
-      //if(rec.get('estado')==3){ corporacionsoluma.util.Util.showErrorMsg('No se puede anular esta factura!'); return false; }
       Ext.MessageBox.confirm('Aviso','Desea eliminar el producto ?',function(btn){
         if(btn=='yes'){
           if (rec) {
@@ -95,16 +94,18 @@ Ext.define('corporacionsoluma.view.ventas.AccionesRegCotizacionesFacturar', {
          
           switch (record.get('estado')) {
             
-              case 1: u=corporacionsoluma.util.Rutas.facturacionDetalle; break;
-              case 3: u=corporacionsoluma.util.Rutas.cotizacionDetalle; break;
-              case 5: u=corporacionsoluma.util.Rutas.facturacionDetalle; break;
-              case 7: u=corporacionsoluma.util.Rutas.facturacionDetalle; break;
+              case 1 || 5 || 7 : u=corporacionsoluma.util.Rutas.facturacionDetalle; break;
+              case 3 : u=corporacionsoluma.util.Rutas.cotizacionDetalle; break;
+              case 4 : (record.get('idfacturacion')==0?u=corporacionsoluma.util.Rutas.cotizacionDetalle:u=corporacionsoluma.util.Rutas.facturacionDetalle); break;
+              //case 5: u=corporacionsoluma.util.Rutas.facturacionDetalle; break;
+              //case 7: u=corporacionsoluma.util.Rutas.facturacionDetalle; break;
           }
           switch (record.get('estado')) {
-              case 1: v = record.get('idfacturacion');break;
+              case 1 || 5 || 7: v = record.get('idfacturacion');break;
               case 3: v = record.get('idcoti');break;
-              case 5: v = record.get('idfacturacion');break;
-              case 7: v = record.get('idfacturacion');break;
+              case 4: (record.get('idfacturacion')==0?v = record.get('idcoti') : v = record.get('idfacturacion'));   ;break;
+              //case 5: v = record.get('idfacturacion');break;
+              //case 7: v = record.get('idfacturacion');break;
                 
           }
           Ext.Ajax.request({

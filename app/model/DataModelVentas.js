@@ -264,7 +264,11 @@ Ext.define('corporacionsoluma.model.CotizacionesFacturar', {
         { name: 'numeroguia', type: 'string' },
         { name: 'enviarsunat', type: 'boolean' },
         { name: 'estadosunat', type: 'string' },
-        { name: 'totalcotianulado', type: 'float' }
+        { name: 'totalcotianulado', type: 'float' },
+        { name: 'serieguia2', type: 'string' },
+        { name: 'numeroguia2', type: 'string' },
+        { name: 'serieguia3', type: 'string' },
+        { name: 'numeroguia3', type: 'string' }
 
         
     ]

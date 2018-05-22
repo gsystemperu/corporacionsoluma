@@ -74,6 +74,18 @@ Ext.define('corporacionsoluma.view.almacen.Producto', {
               flex: 1,
               align: 'left'
             },
+            {
+              text: 'Stock',
+              dataIndex: 'existencias',
+              flex: 0.8,
+              align :'center',
+              renderer:function(v,st){
+                 if(v==0){
+                  st.tdStyle="color:red";
+                 }
+                 return v;
+              }
+            },
                {
                 //xtype:'numbercolumn',
                 text: 'Precio Venta',

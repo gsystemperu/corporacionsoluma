@@ -208,20 +208,20 @@ Ext.define('corporacionsoluma.view.ventas.ListadoDeCotizacionesFacturar', {
                          }
                     }]
                 },
-                {
+                /*{
                     xtype:'checkcolumn',
                     flex : 0.3,
                     text: 'Sunat',
                     name : 'enviarsunat',
-                    /*editor:{
+                    editor:{
                         xtype:'checkboxfield'
-                    }*/
+                    }
                 },
                 {
                     flex : 0.5,
                     text: 'Est.Sunat',
                     name : 'estadosunat'
-                },
+                },*/
                 {
                     xtype: 'widgetcolumn',
                     width: 50,

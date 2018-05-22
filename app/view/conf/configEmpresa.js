@@ -23,12 +23,12 @@ Ext.define('corporacionsoluma.view.conf.configEmpresa', {
         items: me.getFormularioEmpresa(),
         bbar: [
           '->',
-          {
+          /*{
             xtype: 'button',
             text: 'Cancelar',
             scale: 'medium',
             handler: 'onClickCancelarEmpresa'
-          },
+          },*/
           {
             xtype: 'button',
             text: 'Grabar',

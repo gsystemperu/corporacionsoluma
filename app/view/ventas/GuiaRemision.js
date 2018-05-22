@@ -117,7 +117,7 @@ Ext.define('corporacionsoluma.view.ventas.GuiaRemision', {
                                                             fieldLabel: 'Costo Minimo', flex: 1,
                                                             value: 0,
                                                             name: 'costominimo', minValue: 0,
-                                                            labelAlign:'right'
+                                                            labelAlign: 'right'
                                                         }
                                                     ]
                                                 }
@@ -143,7 +143,7 @@ Ext.define('corporacionsoluma.view.ventas.GuiaRemision', {
                                                     flex: 1,
                                                     allowBlank: false,
                                                     name: 'razonsocialdestinatario'
-                                                           
+
                                                 },
                                                 {
                                                     xtype: 'panel',
@@ -270,7 +270,6 @@ Ext.define('corporacionsoluma.view.ventas.GuiaRemision', {
                                 value: 0
                             },
                             //*** */
-
                             {
                                 xtype: 'container',
                                 layout: {
@@ -298,81 +297,160 @@ Ext.define('corporacionsoluma.view.ventas.GuiaRemision', {
                                         value: new Date(),
                                         name: 'fechaemision',
                                         flex: 1
+                                    },
+
+                                    {
+                                        xtype: 'textfield',
+                                        flex: 2,
+                                        readOnly: true,
+                                        hidden: true,
+                                        fieldStyle: 'text-align: center;font-size:15px;font-weight:bold; ',
+                                        value: 'CT000000000000',
+                                        name: 'ctcodigo',
+                                        itemId: 'nrodocumento'
+                                    },
+                                    {
+                                        xtype: 'label',
+                                        text: 'Motivo del Translado :',
+                                        width: 200,
+                                        height: 23,
+                                        style: {
+                                            paddingTop: '3px',
+                                            background: '#664a5a',
+                                            color: 'white',
+                                            textAlign: 'center',
+                                            fontWeight: 'bold',
+                                            fontSize: '13px'
+                                        }
+                                    },
+                                    {
+                                        xtype: 'combobox',
+                                        labelHide: true,
+                                        store: __storeMotivosTranslado,
+                                        displayField: 'descripcion',
+                                        valueField: 'id',
+                                        editable: true,
+                                        queryMode: 'local',
+                                        name: 'idmotivotranslado',
+                                        allowBlank: false,
+                                        flex: 3
+
+                                    }
+                                ]
+
+                                // }
+
+                                //]
+                            },
+                            {
+                                xtype: 'container',
+                                layout: {
+                                    type: 'hbox',
+                                    align: 'stretch'
+                                },
+                                padding: '0 0 5 0',
+                                items: [
+
+                                    {
+                                        xtype: 'label',
+                                        text: 'Nro. Documento 1 :',
+                                        width: 120,
+                                        height: 23,
+                                        style: {
+                                            paddingTop: '3px',
+                                            background: '#664a5a',
+                                            color: 'white',
+                                            textAlign: 'center',
+                                            fontWeight: 'bold',
+                                            fontSize: '13px'
+                                        }
+                                    },
+                                    {
+                                        xtype: 'textfield',
+                                        flex: 1,
+                                        name: 'serieguia',
+                                        itemId: 'serieguia',
+                                        emptyText: '000',
+                                        allowBlank: false
 
                                     },
-                                  
-                                            {
-                                                xtype: 'label',
-                                                text: 'Nro. Documento :',
-                                                width: 120,
-                                                height: 23,
-                                                style: {
-                                                    paddingTop: '3px',
-                                                    background: '#664a5a',
-                                                    color: 'white',
-                                                    textAlign: 'center',
-                                                    fontWeight: 'bold',
-                                                    fontSize: '13px'
-                                                }
-                                            },
-                                            {
-                                                xtype:'textfield',
-                                                flex: 1,
-                                                name: 'serieguia',
-                                                itemId: 'serieguia',
-                                                emptyText:'000',
-                                                allowBlank:false
-                                                
-                                            },
-                                            {
-                                                xtype:'textfield',
-                                                flex: 1,
-                                                name: 'numeroguia',
-                                                itemId: 'numeroguia',
-                                                emptyText:'0000',
-                                                allowBlank:false
-                                                
-                                            },
-                                            {
-                                                xtype: 'textfield',
-                                                flex: 2,
-                                                readOnly: true,
-                                                hidden:true,
-                                                fieldStyle: 'text-align: center;font-size:15px;font-weight:bold; ',
-                                                value: 'CT000000000000',
-                                                name: 'ctcodigo',
-                                                itemId: 'nrodocumento'
-                                            },
-                                            {
-                                                xtype: 'label',
-                                                text: 'Motivo del Translado :',
-                                                width: 200,
-                                                height: 23,
-                                                style: {
-                                                    paddingTop: '3px',
-                                                    background: '#664a5a',
-                                                    color: 'white',
-                                                    textAlign: 'center',
-                                                    fontWeight: 'bold',
-                                                    fontSize: '13px'
-                                                }
-                                            },
-                                            {
-                                                xtype: 'combobox',
-                                                labelHide: true,
-                                                store: __storeMotivosTranslado,
-                                                displayField: 'descripcion',
-                                                valueField: 'id',
-                                                editable: true,
-                                                queryMode: 'local',
-                                                name: 'idmotivotranslado',
-                                                allowBlank: false,
-                                                flex: 3
+                                    {
+                                        xtype: 'textfield',
+                                        flex: 1,
+                                        name: 'numeroguia',
+                                        itemId: 'numeroguia',
+                                        emptyText: '0000',
+                                        allowBlank: false
 
-                                            }
-                                        ]
+                                    },
+                                    {
+                                        xtype: 'label',
+                                        text: 'Nro. Documento 2 :',
+                                        width: 120,
+                                        height: 23,
+                                        style: {
+                                            paddingTop: '3px',
+                                            background: '#664a5a',
+                                            color: 'white',
+                                            textAlign: 'center',
+                                            fontWeight: 'bold',
+                                            fontSize: '13px'
+                                        }
+                                    },
+                                    {
+                                        xtype: 'textfield',
+                                        flex: 1,
+                                        name: 'serieguia2',
+                                        itemId: 'serieguia2',
+                                        emptyText: '000',
+                                        allowBlank: true
 
-                                   // }
+                                    },
+                                    {
+                                        xtype: 'textfield',
+                                        flex: 1,
+                                        name: 'numeroguia2',
+                                        itemId: 'numeroguia2',
+                                        emptyText: '0000',
+                                        allowBlank: true
+
+                                    },
+                                    {
+                                        xtype: 'label',
+                                        text: 'Nro. Documento 3 :',
+                                        width: 120,
+                                        height: 23,
+                                        style: {
+                                            paddingTop: '3px',
+                                            background: '#664a5a',
+                                            color: 'white',
+                                            textAlign: 'center',
+                                            fontWeight: 'bold',
+                                            fontSize: '13px'
+                                        }
+                                    },
+                                    {
+                                        xtype: 'textfield',
+                                        flex: 1,
+                                        name: 'serieguia3',
+                                        itemId: 'serieguia3',
+                                        emptyText: '000',
+                                        allowBlank: true
+
+                                    },
+                                    {
+                                        xtype: 'textfield',
+                                        flex: 1,
+                                        name: 'numeroguia3',
+                                        itemId: 'numeroguia3',
+                                        emptyText: '0000',
+                                        allowBlank: true
+
+                                    }
+
+                                ]
+
+                                // }
 
                                 //]
                             },
