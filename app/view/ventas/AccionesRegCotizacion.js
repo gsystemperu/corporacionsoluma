@@ -16,7 +16,7 @@ Ext.define('corporacionsoluma.view.ventas.AccionesRegCotizacion', {
 
     onSelectedClienteERP:function( grid, record, index, eOpts ){
       try {
-          _txt  = Ext.String.format('Pedidos  : {0}',record.get('cotizaciones'));
+          _txt  = Ext.String.format('Cotizaciones  : {0}',record.get('cotizaciones'));
           _txtf = Ext.String.format('Facturación  : {0}',record.get('ventas'));
           Ext.ComponentQuery.query('#btnCotizaciones')[0].setText(_txt);
           Ext.ComponentQuery.query('#btnFacturasBoletas')[0].setText(_txtf);
@@ -567,11 +567,24 @@ Ext.define('corporacionsoluma.view.ventas.AccionesRegCotizacion', {
         _store.load(1);
     },
 
-    /*onClickRefrescarListadoCotizaciones: function () {
+    onSelectedDetalleCotizacionCliente: function (obj, td, cellIndex, record, tr, rowIndex, e, eOpts) {
         me = this;
-        _store = me.lookupReference('dgvVentas').getStore();
+        if(record.get('estado')==3)
+        {
+          //Ext.ComponentQuery.query('#btnImprimirCotizacion')[0].setDisabled(true);
+          //Ext.ComponentQuery.query('#btnEditarCotizacion')[0].setDisabled(true);
+        }else{
+          //Ext.ComponentQuery.query('#btnEditarCotizacion')[0].setDisabled(false);
+          //Ext.ComponentQuery.query('#btnImprimirCotizacion')[0].setDisabled(false);
+        }
+
+        _store = me.lookupReference('dgvDetalleCotizacionCliente').getStore();
+        _store.getProxy().extraParams = {
+            vIdCotizacion: record.get('vid')
+        };
         _store.load(1);
-    },*/
+    },
+
 
     onClickBuscarCotizacionesPorFechas: function () {
 

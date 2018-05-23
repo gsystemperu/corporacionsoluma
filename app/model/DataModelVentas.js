@@ -321,3 +321,14 @@ Ext.define('corporacionsoluma.model.MotivoTranslado', {
       {name: "descripcion", type:'string' },
     ]
 });
+
+
+
+// @Model de los metodos de pago
+Ext.define('corporacionsoluma.model.MetodoPago', {
+    extend: 'Ext.data.Model',
+    fields: [
+      {name: "id", type:'int' },
+      {name: "descripcion", type:'string' },
+    ]
+});

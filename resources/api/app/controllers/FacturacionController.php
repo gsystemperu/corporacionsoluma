@@ -279,4 +279,16 @@ class FacturacionController extends Controller
                return $response;
           }
         }
+
+        public function listarmetodopagoAction(){
+          $request        = new Phalcon\Http\Request();
+          $response       = new \Phalcon\Http\Response();
+          if($request->isGet() ==true)
+          {
+               $jsonData      = Facturacion::listarMetodosPago();
+               $response->setContentType('application/json', 'UTF-8');
+               $response->setContent($jsonData);
+               return $response;
+          }
+        }
 }

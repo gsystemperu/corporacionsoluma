@@ -158,11 +158,11 @@ Ext.define('corporacionsoluma.view.ventas.AccionesRegCotizacionesFacturar', {
         }
     },
     onClickIngresarPagoAcuenta:function(btn){
-      __rec = btn.getWidgetRecord();
+      r = btn.getWidgetRecord();
       Ext.widget('wPagosAcuenta', {
-        codigo :__rec.get("idfacturacion"),
-        nombre :__rec.get("nomcompleto") ,
-        monto  :__rec.get("totalcoti")
+        codigo :r.get("idfacturacion"),
+        nombre :r.get("nomcompleto") ,
+        monto  :r.get("totalcoti")
       });
     },
     onClickBuscarCotizacionesPorFechas:function(btn){

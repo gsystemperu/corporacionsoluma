@@ -106,7 +106,7 @@ Ext.define('corporacionsoluma.store.Cotizaciones', {
     extend: 'Ext.data.Store',
     requiere:['corporacionsoluma.model.DataModelVentas'],
     model   :'corporacionsoluma.model.Cotizacion',
-    autoLoad: true,
+    autoLoad: false,
     remoteSort: true,
     autoSync  : true,
     autoDestroy: true,
@@ -488,3 +488,22 @@ Ext.define('corporacionsoluma.store.MotivosTranslados', {
         }
     }
 });
+
+// @ Store : Listado de metodos de pago
+
+Ext.define('corporacionsoluma.store.MetodosPago', {
+    extend: 'Ext.data.Store',
+    requiere:['corporacionsoluma.model.DataModelVentas'],
+    model   :'corporacionsoluma.model.MetodoPago',
+    autoLoad: true,
+    proxy: {
+        type: 'ajax',
+        api: {read: 'resources/api/listar_metodo_pago'},
+        reader: {
+            type: 'json',
+            rootProperty: 'data',
+        }
+    }
+});
+
+

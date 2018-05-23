@@ -279,7 +279,8 @@ $di->set('router',function() {
      $router->add('/listar_nombre_moneda', array('controller'=>'facturacion','action'=>'listarnombremoneda'));
      $router->add('/ingresar_apetura_caja', array('controller'=>'facturacion','action'=>'aperturacajaingresar'));
      $router->add('/listar_motivos_translado', array('controller'=>'facturacion','action'=>'listarmotivostranslados'));
-
+     $router->add('/listar_metodo_pago', array('controller'=>'facturacion','action'=>'listarmetodopago'));
+     
 
 
      //@Mantenimientos : Tablas Principales

@@ -91,7 +91,8 @@ Ext.define('corporacionsoluma.store.PagosAcuenta', {
     fields: [
             {name: "fecha",type:'date',format:'d/m/Y'},
             {name: "fechat",type:'date',format:'d/m/Y'},
-            {name: "monto", type:'float' }
+            {name: "monto", type:'float' },
+            {name: "metodopago", type:'string' }
     ],
     /*data : [
       ['' ,0 ]

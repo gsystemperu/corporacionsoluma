@@ -8,7 +8,7 @@ Ext.define('corporacionsoluma.view.ventas.ListadoClienteCotizacion', {
         'Ext.grid.column.*',
         'Ext.form.field.*',
         'Ext.panel.Panel',
-        //'corporacionsoluma.view.ventas.AccionesRegCotizacion',
+        'corporacionsoluma.view.ventas.AccionesRegCotizacion',
         'corporacionsoluma.store.DataTemp'
     ],
     layout: {
@@ -21,17 +21,15 @@ Ext.define('corporacionsoluma.view.ventas.ListadoClienteCotizacion', {
         bodyPadding: 0,
         border: false
     },
-    //controller: 'acciones-regcotizacion',
+    controller: 'acciones-regcotizacion',
     initComponent: function () {
-        var storeCoti    = Ext.create('corporacionsoluma.store.Cotizaciones');
-        var storeCotiDet = Ext.create('corporacionsoluma.store.CotizacionesDetalle');
-
-        var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
+         sc = Ext.create('corporacionsoluma.store.Cotizaciones');
+         sd = Ext.create('corporacionsoluma.store.CotizacionesDetalle');
+         rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
             clicksToMoveEditor: 1,
             autoCancel: false
-        });
-
-        Ext.apply(this, {
+         });
+         Ext.apply(this, {
             items: [{
                 xtype: 'panel',
                 flex: 1,
@@ -41,7 +39,7 @@ Ext.define('corporacionsoluma.view.ventas.ListadoClienteCotizacion', {
                     xtype: 'grid',
                     itemId: 'dgvVentas',
                     reference: 'dgvVentas',
-                    store: storeCoti,
+                    store: sc,
                     columnLines: true,
                     sortableColumns: false,
                     requires: [
@@ -74,12 +72,17 @@ Ext.define('corporacionsoluma.view.ventas.ListadoClienteCotizacion', {
                             dataIndex: 'descripcion',
                             flex: 1,
                             align: 'center',
-                            renderer : function(value,style){
-                               if(value=='CT ANULADA'){
-                                 return '<span style="color:red;">'+value.toString()+'</span>'
-                               }else{
-                                 return value;
-                               }
+                            renderer : function(value,meta){
+                                if(value=='CT ANULADA')
+                                {
+                                    meta.style = "color:#ffffff;font-Size:12px;background-color:#f47a88;";
+                                    return value;
+                                }else if(value=='CT GENERADA'){
+                                        meta.style = "color:#ffffff;font-Size:12px;background-color:#f7de51;";
+                                        return value;
+                                    }else{
+                                        return value;
+                                    }
                             }
                         },
                         {
@@ -117,7 +120,7 @@ Ext.define('corporacionsoluma.view.ventas.ListadoClienteCotizacion', {
                     ],
 
                     listeners: {
-                        cellclick: 'onSelectedDetalleCotizacion'
+                        cellclick: 'onSelectedDetalleCotizacionCliente'
                     }
 
 
@@ -183,12 +186,13 @@ Ext.define('corporacionsoluma.view.ventas.ListadoClienteCotizacion', {
                 layout: 'fit',
                 collapseDirection: 'right',
                 border: false,
+                hidden:false,
                 flex: 0.7,
                 items: [{
                     xtype: 'grid',
                     reference: 'dgvDetalleCotizacionCliente',
                     itemId: 'dgvDetalleCotizacionCliente',
-                    store: storeCotiDet,
+                    store: sd,
                     columnLines: true,
                     sortableColumns: false,
                     requires: [
@@ -234,11 +238,5 @@ Ext.define('corporacionsoluma.view.ventas.ListadoClienteCotizacion', {
             }]
         });
         this.callParent();
-        /*storeCoti.getProxy().extraParams = {
-            vDesde: Ext.ComponentQuery.query('#dfDesde')[0].getRawValue(),
-            vHasta: Ext.ComponentQuery.query('#dfDesde')[0].getRawValue(),
-            vPersona: ''
-        };
-        storeCoti.load(1);*/
     }
 });

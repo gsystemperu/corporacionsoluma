@@ -24,6 +24,7 @@ Ext.define('corporacionsoluma.view.ventas.ListadoDeCotizaciones', {
     controller: 'acciones-regcotizacion',
     initComponent: function () {
         var storeCoti    = Ext.create('corporacionsoluma.store.Cotizaciones');
+        storeCoti.load();
         var storeCotiDet = Ext.create('corporacionsoluma.store.CotizacionesDetalle');
         var storeEstado = Ext.create('corporacionsoluma.store.BusquedaEstado');
 

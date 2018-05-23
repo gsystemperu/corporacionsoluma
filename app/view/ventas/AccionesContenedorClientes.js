@@ -6,8 +6,8 @@ Ext.define('corporacionsoluma.view.ventas.AccionesContenedorClientes', {
     },
     onClickNuevoCliente:function(btn){
       try {
-        var me =  Ext.ComponentQuery.query('#wContenedorCliente')[0];    //this;
-        var l = me.getLayout();
+         me =  Ext.ComponentQuery.query('#wContenedorCliente')[0];    //this;
+         l = me.getLayout();
         l.setActiveItem(1);
         Ext.ComponentQuery.query('#wFormClienteListado')[0].reset();
       } catch (e) {
@@ -16,8 +16,8 @@ Ext.define('corporacionsoluma.view.ventas.AccionesContenedorClientes', {
     },
     onClickVerClientes:function(btn){
       try {
-        var me =  Ext.ComponentQuery.query('#wContenedorCliente')[0];    //this;
-        var l = me.getLayout();
+         me =  Ext.ComponentQuery.query('#wContenedorCliente')[0];    //this;
+         l = me.getLayout();
         l.setActiveItem(0);
         this.onClickRefrescarListado();
 
@@ -26,9 +26,16 @@ Ext.define('corporacionsoluma.view.ventas.AccionesContenedorClientes', {
       }
     },
     onClickVerCotizaciones:function(){
-      var me =  Ext.ComponentQuery.query('#wContenedorCliente')[0];    //this;
-      var l = me.getLayout();
-      l.setActiveItem(2);
+       me =  Ext.ComponentQuery.query('#wContenedorCliente')[0];    //this;
+       r  = Ext.ComponentQuery.query('#dgvClientes')[0].getSelectionModel().getSelection()[0];
+       l = me.getLayout();
+       l.setActiveItem(2);
+       Ext.ComponentQuery.query('#dgvVentas')[0].getStore().load({
+         params:{
+          vPersona : r.get('nomcompleto')
+         }
+       });
+
     },
     onClickRefrescarListado: function () {
         _store = Ext.ComponentQuery.query('#dgvClientes')[0].getStore();
@@ -38,8 +45,8 @@ Ext.define('corporacionsoluma.view.ventas.AccionesContenedorClientes', {
        console.log("test");
     },
     onClickVerFacturacionCliente:function(){
-      var me =  Ext.ComponentQuery.query('#wContenedorCliente')[0];    //this;
-      var l = me.getLayout();
+       me =  Ext.ComponentQuery.query('#wContenedorCliente')[0];    //this;
+       l = me.getLayout();
       l.setActiveItem(3);
 
       __registro = Ext.ComponentQuery.query('#dgvClientes')[0].getSelectionModel().getSelection()[0];
@@ -54,11 +61,11 @@ Ext.define('corporacionsoluma.view.ventas.AccionesContenedorClientes', {
     },
     //@@Reportes Cliente
     onClickImprimirCC:function(){
-      var _record =  Ext.ComponentQuery.query('#dgvClientes')[0].getSelectionModel().getSelection()[0];
+       _record =  Ext.ComponentQuery.query('#dgvClientes')[0].getSelectionModel().getSelection()[0];
       if (_record) {
           __nombre = _record.get('nombreper');
           __id     = _record.get('idper');
-          var objrpt = window.open( corporacionsoluma.util.Rutas.rptClienteImprimirPagosCC+ 'idper='+ __id+"&persona="+__nombre, "", "width=700,height=900");
+           objrpt = window.open( corporacionsoluma.util.Rutas.rptClienteImprimirPagosCC+ 'idper='+ __id+"&persona="+__nombre, "", "width=700,height=900");
           //setTimeout(function(){ objrpt.close(); }, 1000);
       } else {
           Ext.Msg.alert("Aviso", "Seleccionar al cliente para imprimir");
@@ -67,11 +74,11 @@ Ext.define('corporacionsoluma.view.ventas.AccionesContenedorClientes', {
 
     },
     onClickImprimirListadoCC:function(){
-      var _record =  Ext.ComponentQuery.query('#dgvClientes')[0].getSelectionModel().getSelection()[0];
+       _record =  Ext.ComponentQuery.query('#dgvClientes')[0].getSelectionModel().getSelection()[0];
       if (_record) {
           __nombre = _record.get('nombreper');
           __id     = _record.get('idper');
-          var objrpt = window.open( corporacionsoluma.util.Rutas.rptClienteImprimirCC+ 'idper='+ __id+"&persona="+__nombre, "", "width=700,height=900");
+           objrpt = window.open( corporacionsoluma.util.Rutas.rptClienteImprimirCC+ 'idper='+ __id+"&persona="+__nombre, "", "width=700,height=900");
           //setTimeout(function(){ objrpt.close(); }, 1000);
       } else {
           Ext.Msg.alert("Aviso", "Seleccionar al cliente para imprimir");

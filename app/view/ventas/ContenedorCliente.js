@@ -47,10 +47,7 @@ Ext.define('corporacionsoluma.view.ventas.ContenedorCliente', {
   },
   getBotonesERP:function(){
     _cotizaciones = 0;
-    _txt1 = Ext.String.format('Pedidos  : {0}',_cotizaciones);
-    _documentos = 0;
-    _txt2 = Ext.String.format('Facturación  : {0}',_documentos);
-
+    _txt1 = Ext.String.format('Cotizaciones  : {0}',_cotizaciones);
     return obj = [
       {
 
@@ -81,17 +78,8 @@ Ext.define('corporacionsoluma.view.ventas.ContenedorCliente', {
          scale :'large',
          itemId:'btnCotizaciones',
          handler:'onClickVerCotizaciones'
-       },
-       {
-         text : _txt2,
-         iconCls :'fa  fa-cubes  fa-2x',
-         textAlign :'right',
-         iconAlign:'left',
-         scale :'large',
-         itemId:'btnFacturasBoletas',
-         handler :'onClickVerFacturacionCliente'
-
        }
+       
     ];
   }
 

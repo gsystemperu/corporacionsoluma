@@ -167,11 +167,11 @@ Ext.define('corporacionsoluma.view.ventas.ListadoDeCotizacionesFacturar', {
                 },
                 {
                     xtype: 'numbercolumn',
-                    text: 'Acuenta',
+                    text: 'Pagos',
                     dataIndex: 'pagoacuenta',
                     flex: 0.7,
                     align: 'right',
-                    hidden:true,
+                    hidden:false,
                     renderer: Ext.util.Format.numberRenderer('0.00000'),
                     summaryType: 'sum',
                     summaryRenderer: function(v){
