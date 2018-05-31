@@ -75,7 +75,7 @@ Ext.define('corporacionsoluma.view.almacen.Producto', {
               align: 'left'
             },
             {
-              text: 'Stock',
+              text: 'A Mano',
               dataIndex: 'existencias',
               flex: 0.8,
               align :'center',

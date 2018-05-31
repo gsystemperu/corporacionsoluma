@@ -8,7 +8,7 @@ return new \Phalcon\Config(array(
         'host'        => '198.211.99.171',
         'username'    => 'postgres',
         'password'    => '64y4.634##$%',
-        'dbname'      => 'corporacionsolumatest',
+        'dbname'      => 'corporacionsoluma',
         'schema'      => 'public',
 	    'port'          => 5432
     ),

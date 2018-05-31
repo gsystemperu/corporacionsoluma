@@ -562,7 +562,8 @@ Ext.define('corporacionsoluma.view.ventas.AccionesRegCotizacion', {
 
         _store = me.lookupReference('dgvDetalleCotizacion').getStore();
         _store.getProxy().extraParams = {
-            vIdCotizacion: record.get('vid')
+            vIdCotizacion: record.get('vid'),
+            vOrden       : 1
         };
         _store.load(1);
     },
@@ -580,7 +581,8 @@ Ext.define('corporacionsoluma.view.ventas.AccionesRegCotizacion', {
 
         _store = me.lookupReference('dgvDetalleCotizacionCliente').getStore();
         _store.getProxy().extraParams = {
-            vIdCotizacion: record.get('vid')
+            vIdCotizacion: record.get('vid'),
+            vOrden : 1
         };
         _store.load(1);
     },

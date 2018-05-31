@@ -69,8 +69,10 @@ Ext.define('corporacionsoluma.Application', {
         'mrp.FormListaMaterial',
 
         //@Conf views
-        'conf.configEmpresa'
-
+        'conf.configEmpresa',
+        //@DashBoard
+        'dashboard.Almacen',
+        'dashboard.AlmacenGraficoMovimientoProducto'
     ],
 
      models: [

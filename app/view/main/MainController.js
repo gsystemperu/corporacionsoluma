@@ -76,14 +76,28 @@ Ext.define('corporacionsoluma.view.main.MainController', {
         _panel.setActiveTab(pan.itemId);
         break;
       case "panControlAlmacen":
-        _panel = this.getView().down('tabpanel');
-        if (!_panel.getChildByElement(pan.itemId)) {
+        //_panel = this.getView().down('tabpanel');
+
+        _panel = this.lookupReference('tabPrincipal');  //this.getView().down('tabpanel');
+       /* try {
+          if(_tit.length > 0){
+            _panel.removeAll();
+            if (!_panel.getChildByElement(_view)) */
+
+
+
+
+        if (!_panel.getChildByElement(pan.itemId))
+        {
+          _panel.removeAll();
           _panel.add({
             title: 'Control Almacen',
-            closable: true,
+            closable: false,
             id: pan.itemId,
+            layout: 'fit',
             items: [{
-              xtype: 'DashBoardCrm'
+              xtype: 'dashalmacen',
+              closable: false
             }]
           });
 

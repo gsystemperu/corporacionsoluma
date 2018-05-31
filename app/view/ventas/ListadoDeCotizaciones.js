@@ -306,11 +306,6 @@ Ext.define('corporacionsoluma.view.ventas.ListadoDeCotizaciones', {
             }]
         });
         this.callParent();
-        /*storeCoti.getProxy().extraParams = {
-            vDesde: Ext.ComponentQuery.query('#dfDesde')[0].getRawValue(),
-            vHasta: Ext.ComponentQuery.query('#dfDesde')[0].getRawValue(),
-            vPersona: ''
-        };
-        storeCoti.load(1);*/
+ 
     }
 });

@@ -9,6 +9,7 @@ Ext.require('corporacionsoluma.util.Glyphs');
 });*/
 
 
+
 Ext.application(
 {
     name: 'corporacionsoluma',

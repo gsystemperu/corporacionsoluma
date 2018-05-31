@@ -323,8 +323,12 @@ class CotizacionController extends Controller
          if($request->isGet() ==true)
          {
               $vIdCotizacion   = $request->get('vIdCotizacion');
+              $vOrden          = $request->get('vOrden');
               $data = array($vIdCotizacion);
-              $jsonData             = Cotizacion::detalleCotizacionVista($data);
+              switch ($vOrden) { // 1= acendente  , 2 = desendenete
+                case 1: $jsonData             = Cotizacion::detalleCotizacionVistaAsc($data); break;
+                case 2: $jsonData             = Cotizacion::detalleCotizacionVistaDesc($data); break;
+              } 
               $response->setContentType('application/json', 'UTF-8');
               $response->setContent($jsonData);
               return $response;

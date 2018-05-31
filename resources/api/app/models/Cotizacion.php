@@ -176,6 +176,18 @@ class Cotizacion extends \Phalcon\Mvc\Model
           $sql     =  $obj->executarJson('ventas','sp_cotizaciones_detalle_vista',$param);
           return $sql;
     }
+    public static function detalleCotizacionVistaDesc($data){
+      $obj     = new SQLHelpers();
+      $param   = $data;
+      $sql     =  $obj->executarJson('ventas','sp_cotizaciones_detalle_vista_desc',$param);
+      return $sql;
+      }
+      public static function detalleCotizacionVistaAsc($data){
+            $obj     = new SQLHelpers();
+            $param   = $data;
+            $sql     =  $obj->executarJson('ventas','sp_cotizaciones_detalle_vista_asc',$param);
+            return $sql;
+      }
 
 
     public static function vendedoresListar($data){

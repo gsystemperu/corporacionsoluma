@@ -228,7 +228,7 @@ class ImpresionController extends Controller
       //print_r($dataEmpresa);die();
       $dataCotizacion =  json_decode(Cotizacion::buscarCotizacionPorId(array($idCot)))->data[0];
       //print_r($dataCotizacion);die();
-      $dataDetalle =  json_decode(Cotizacion::detalleCotizacionVista(array($idCot)))->data;
+      $dataDetalle =  json_decode(Cotizacion::detalleCotizacionVistaAsc(array($idCot)))->data;
       //print_r($dataDetalle);die();
       $dataPersona = json_decode(Persona::Buscar($dataCotizacion->idper))->data[0];;
       //print_r($dataPersona);die();
@@ -598,7 +598,7 @@ class ImpresionController extends Controller
             $idCot      = $request->get("id");
             $dataEmpresa =  json_decode(Empresa::listar())->data[0];
             $dataCotizacion =  json_decode(Cotizacion::buscarCotizacionPorId(array($idCot)))->data[0];
-            $dataDetalle =  json_decode(Cotizacion::detalleCotizacionVista(array($idCot)))->data;
+            $dataDetalle =  json_decode(Cotizacion::detalleCotizacionVistaAsc(array($idCot)))->data;
             $dataPersona = json_decode(Persona::Buscar($dataCotizacion->idper))->data[0];;
             
             $total_sin_imp = 0.00;

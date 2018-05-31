@@ -112,7 +112,8 @@ Ext.define('corporacionsoluma.view.ventas.AccionesRegCotizacionesFacturar', {
               //url :(record.get('estado')!=3?corporacionsoluma.util.Rutas.cotizacionDetalle:corporacionsoluma.util.Rutas.facturacionDetalle),
               url : u,
               params:{
-                vIdCotizacion :  v  //(record.get('estado')!=3?record.get('idcoti') : record.get('idfacturacion')) 
+                vIdCotizacion :  v ,  //(record.get('estado')!=3?record.get('idcoti') : record.get('idfacturacion')) 
+                vOrden : 2
               },
               method : 'GET',
               success:function(response){
@@ -213,7 +214,7 @@ Ext.define('corporacionsoluma.view.ventas.AccionesRegCotizacionesFacturar', {
           if(record.get('idfacturacion')>0)
           {
             __store = Ext.ComponentQuery.query('#gvVentasFacturarDetalle')[0].getStore();
-            alert("a");
+            
             __store.load({
                params :{
                  idfacturacion: record.get('idfacturacion')

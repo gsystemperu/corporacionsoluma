@@ -191,7 +191,7 @@ Ext.define('corporacionsoluma.view.puntoventa.MainController', {
       });
     }else{
 
-      alert("validador");
+      //alert("validador");
     }
 
   },

@@ -67,7 +67,8 @@ Ext.define('corporacionsoluma.view.main.Main', {
           listeners: {
             itemClick: 'onClickOpcionMenu'
           }
-        }]
+        }],
+        //listeners: [{ expand: 'onExpandPanel' }]
 
 
       }, 
@@ -177,9 +178,9 @@ Ext.define('corporacionsoluma.view.main.Main', {
           items:[
             {
               xtype  :'image',
-              //src    : 'resources/images/lgsis.png',
+              src    : 'resources/images/lgsis.png',
               width  : 300,
-              height : 80,
+              height : 80,hidden:false
             },
             {
               xtype  :'label',

@@ -34,6 +34,7 @@ Ext.define('corporacionsoluma.view.ventas.PagosAcuenta', {
         s = Ext.create('corporacionsoluma.store.PagosAcuenta');
         m = Ext.create('corporacionsoluma.store.MetodosPago');
         me.title = me.getNombre();
+        //alert(me.getCodigo());
         Ext.apply(me,
         {
           items :me.getGrillaPagos(s,me.getCodigo(),m),
