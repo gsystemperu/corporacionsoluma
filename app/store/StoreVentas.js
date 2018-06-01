@@ -137,7 +137,7 @@ Ext.define('corporacionsoluma.store.CotizacionesDetalle', {
     autoSync  : true,
     autoDestroy: true,
     sorters: [{property: 'item',direction: 'ASC'}],
-    extraParams: { vIdCotizacion: 0 },
+    extraParams: { vIdCotizacion: 0, vOrden:0 },
     proxy: {
         type: 'ajax',
         api: {read: 'resources/api/cotizacion_detalle_vista'},

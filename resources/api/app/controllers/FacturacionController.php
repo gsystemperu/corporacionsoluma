@@ -191,7 +191,6 @@ class FacturacionController extends Controller
            $numeroguia2        =  trim($request->getPost('serieguia2')).'-'.trim($request->getPost('numeroguia2'));
            $numeroguia3        =  trim($request->getPost('serieguia3')).'-'.trim($request->getPost('numeroguia3'));
            
-
            $data = array(
             $vid,
             $idfacturacion,

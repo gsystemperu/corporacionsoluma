@@ -152,7 +152,8 @@ Ext.define('corporacionsoluma.view.ventas.AccionesContenedorCotizacionesFacturar
             Ext.Ajax.request({
               url : (_record.get('idfacturacion')==0?corporacionsoluma.util.Rutas.cotizacionDetalle:corporacionsoluma.util.Rutas.facturacionDetalle),
               params:{
-                vIdCotizacion : _record.get('idcoti')
+                vIdCotizacion : _record.get('idcoti'),
+                vOrden : 1
               },
               method : 'GET',
               success:function(response){
