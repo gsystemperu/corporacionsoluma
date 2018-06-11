@@ -21,11 +21,11 @@ Ext.define('corporacionsoluma.view.ventas.AccionesContenedorCotizacionesFacturar
         var _record =  Ext.ComponentQuery.query('#dgvVentasFacturar')[0].getSelectionModel().getSelection()[0];
         if (_record)
         {
-          if(_record.get('estado')== 3  || _record.get('estado')== 4 ||
-             _record.get('estado')== 5  || _record.get('estado')== 6 ){
-            Ext.Msg.alert("Aviso","Ya fue generado no se puede modificar!");
-            return false;
-          }
+            if(_record.get('estado')== 3  || _record.get('estado')== 4 ||
+              _record.get('estado')== 5  || _record.get('estado')== 6 ){
+              Ext.Msg.alert("Aviso","Ya fue generado no se puede modificar!");
+              return false;
+             }
 
           var me =  Ext.ComponentQuery.query('#wContenedorCotizacionesFacturar')[0];    //this;
           var l = me.getLayout();
@@ -177,7 +177,8 @@ Ext.define('corporacionsoluma.view.ventas.AccionesContenedorCotizacionesFacturar
             Ext.Ajax.request({
               url : (_record.get('idfacturacion')==0?corporacionsoluma.util.Rutas.cotizacionDetalle:corporacionsoluma.util.Rutas.facturacionDetalle),
               params:{
-                idfacturacion : _record.get('idfacturacion')
+                idfacturacion : _record.get('idfacturacion'),
+                vOrden : 1
               },
               method : 'GET',
               success:function(response){
@@ -219,7 +220,8 @@ Ext.define('corporacionsoluma.view.ventas.AccionesContenedorCotizacionesFacturar
             Ext.Ajax.request({
               url : (_record.get('idfacturacion')==0?corporacionsoluma.util.Rutas.cotizacionDetalle:corporacionsoluma.util.Rutas.facturacionDetalle),
               params:{
-                vIdCotizacion : _record.get('idcoti')
+                vIdCotizacion : _record.get('idcoti'),
+                vOrden : 1
               },
               method : 'GET',
               success:function(response){

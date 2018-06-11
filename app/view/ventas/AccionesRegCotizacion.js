@@ -131,7 +131,8 @@ Ext.define('corporacionsoluma.view.ventas.AccionesRegCotizacion', {
             {
                 url :corporacionsoluma.util.Rutas.cotizacionDetalle,
                 params:{
-                  vIdCotizacion : _rec.get('vid')
+                  vIdCotizacion : _rec.get('vid'),
+                  //vOrden : 2
                 },
                 success:function(response){
                    var _obj = Ext.JSON.decode(response.responseText);
